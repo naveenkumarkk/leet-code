@@ -1,2 +1,2 @@
 Hi!
-I am planning to stay consitent in solving the atleast 1 leet code challenges daily. 
+I plan to stay consistent in solving at least one Leet code challenge daily. 
