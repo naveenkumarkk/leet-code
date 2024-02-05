@@ -7,12 +7,6 @@ class Solution:
             j = i + 1
             while j <= len(arr) - 1:
                 conditioncheck = self.checkCondtions(arr[i], arr[j])
-                print(
-                    "i -> "
-                    + str(arr[i])
-                    + "--j -> "
-                    + str(arr[j]) + "--check ->" + str(conditioncheck)
-                )
                 if conditioncheck:
                     resultState = True
                     break
