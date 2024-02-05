@@ -1,21 +1,13 @@
 class Solution:
     def checkIfExist(self, arr: List[int]) -> bool:
         i = 0
+        n = len(arr)
+        for i in range(n - 1):
+            for j in range(i + 1, n):
+                if self.checkCondtions(arr[i], arr[j]):
+                    return True
 
-        resultState = False
-        while i < len(arr) - 1:
-            j = i + 1
-            while j <= len(arr) - 1:
-                conditioncheck = self.checkCondtions(arr[i], arr[j])
-                if conditioncheck:
-                    resultState = True
-                    break
-                j += 1
-                if resultState is True:
-                    break
-            if resultState is True:
-                break
-            i += 1
+        return False
 
         return resultState
 
