@@ -7,27 +7,20 @@ class Solution:
     def dominantIndex(self, nums: List[int]) -> int:
         copyArray = nums.copy()
         maxEle = self.getMaxElement(nums)
-
         maxIndex = nums.index(maxEle)
-
         nums.pop(maxIndex)
         secMaxEle = self.getMaxElement(nums)
-
         if maxEle >= (secMaxEle * 2):
             return maxIndex
-
         return -1
 
     def getMaxElement(self, nums: List[int]) -> int:
         i = 0
-
         maxElement = nums[i]
-        maxIndex = -1
 
         while i < len(nums):
             if maxElement < nums[i]:
                 maxElement = nums[i]
-                maxIndex = i
             i += 1
 
         return maxElement
