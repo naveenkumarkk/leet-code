@@ -4,20 +4,18 @@
 
 
 class Solution:
-    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
-        length, left, right = 999999, 0, 0
+      def minSubArrayLen(self, target: int, nums: List[int]) -> int:
         arrayLength = len(nums)
+        minLength = float('inf')  # Initialize minLength to positive infinity
+        left = 0
         summation = 0
 
-        while right < arrayLength:
+        for right in range(arrayLength):
             summation += nums[right]
-            if summation >= target:
-                while summation >= target:
-                    summation -= nums[left]
-                    left += 1
-                length = min(length, right - left + 2)
-            right += 1
+            while summation >= target:
+                minLength = min(minLength, right - left + 1)
+                summation -= nums[left]
+                left += 1
 
-        if length == 999999:
-            return 0
-        return length
+        # If minLength is still infinity, it means no subarray was found
+        return minLength if minLength != float('inf') else 0
