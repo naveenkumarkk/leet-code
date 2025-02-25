@@ -15,6 +15,7 @@ class Solution:
                     counter +=1
                 else:
                     counter = 1
+
         nums.clear()
         for key,value in hashList.items():
             if value >= 3:
@@ -25,3 +26,17 @@ class Solution:
                     nums.append(key)
 
         nums.reverse()
+
+
+    # def removeDuplicates(self, nums: List[int]) -> int:
+    #     if len(nums) <= 2:
+    #         return len(nums)
+
+    #     write_index = 2  # Start from index 2 since first two elements can stay
+    #     for i in range(2, len(nums)):
+    #         if nums[i] != nums[write_index - 2]:  # Allow at most two duplicates
+    #             nums[write_index] = nums[i]
+    #             write_index += 1
+
+    #     # nums is now modified in place, elements beyond write_index are irrelevant
+    #     return write_index
