@@ -10,7 +10,6 @@ class Solution:
                 end = i+1
                 sarray.append(s[start:end])
                 start=i+1
-        print(sarray)
         
         for j in range(len(sarray)-1,-1,-1):
             if sarray[j] != ' ' and sarray[j] !='' :
