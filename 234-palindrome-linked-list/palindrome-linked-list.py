@@ -10,10 +10,10 @@ class Solution:
             data = data + str(head.val)
             head = head.next
         
-        lenData = len(data) - 1
-        reversedData = ''
-        while lenData >= 0:
-            reversedData = reversedData + str(data[lenData])
-            lenData -=1
-        return reversedData == data
+        # lenData = len(data) - 1
+        # reversedData = ''
+        # while lenData >= 0:
+        #     reversedData = reversedData + str(data[lenData])
+        #     lenData -=1
+        return data[::-1] == data
             
