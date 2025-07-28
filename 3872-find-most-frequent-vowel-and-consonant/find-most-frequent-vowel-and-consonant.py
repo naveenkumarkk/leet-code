@@ -1,20 +1,29 @@
-
 class Solution:
     def maxFreqSum(self, s: str) -> int:
-        vowels = {'a', 'e', 'i', 'o', 'u'}
-        vowel_count = defaultdict(int)
-        consonant_count = defaultdict(int)
+        vowels_dict = {
+            'a':0,
+            'e':0,
+            'i':0,
+            'o':0,
+            'u':0
+        }
+        constant_dict = {}
 
         for char in s:
-            if char in vowels:
-                vowel_count[char] += 1
+            if char in vowels_dict:
+                vowels_dict[char] += 1
             else:
-                consonant_count[char] += 1
+                if char in constant_dict:
+                    constant_dict[char] += 1
+                else:
+                    constant_dict[char] = 1
+        max_value = 0
+        if any(constant_dict):
+            max_value += max(constant_dict.values())
 
-        max_sum = 0
-        if consonant_count:
-            max_sum += max(consonant_count.values())
-        if vowel_count:
-            max_sum += max(vowel_count.values())
+        if any(vowels_dict):
+            max_value += max(vowels_dict.values())
+        
+        return max_value
 
-        return max_sum
+
