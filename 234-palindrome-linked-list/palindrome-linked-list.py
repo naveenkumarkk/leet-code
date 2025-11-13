@@ -1,3 +1,4 @@
+import copy
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
@@ -5,40 +6,25 @@
 #         self.next = next
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
-        # Logic 1
-        # data = ''
-        # while head is not None:
-        #     data = data + str(head.val)
-        #     head = head.next
+        slow =fast= head
         
-        # lenData = len(data) - 1
-        # reversedData = ''
-        # while lenData >= 0:
-        #     reversedData = reversedData + str(data[lenData])
-        #     lenData -=1
-        # return data[::-1] == data
-
-        # Logic 2
-        turtle = rabbit = head
-        while rabbit and rabbit.next:
-            turtle = turtle.next
-            rabbit = rabbit.next.next
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
         
+        current = slow
         prev = None
-        while turtle:
-            next_node = turtle.next
-            turtle.next= prev
-            prev = turtle
-            turtle = next_node
+        while current:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
         
-        first_half,second_half = head,prev
+        left,right = head,prev
 
-        while second_half:
-            if first_half.val != second_half.val:
+        while right:
+            if left.val != right.val:
                 return False
-            first_half =  first_half.next
-            second_half = second_half.next
-
+            left = left.next
+            right = right.next
         return True
-
-            
