@@ -1,17 +1,19 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        
-        s = s.lower()
-        convertedString = ''
-        for char in s:
-            if char.isalnum():
-              convertedString+=char 
-        
-        first, last = 0,len(convertedString)-1
+        # cleaned_string = ''.join(filter(str.isalnum, s))
+        # cleaned_string = cleaned_string.lower()
+        # return cleaned_string[::-1] == cleaned_string
 
-        while first < last:
-            if first >= last or convertedString[first] != convertedString[last] :
+        left=0
+        
+        cleaned_string = ''.join(filter(str.isalnum, s))
+        cleaned_string = cleaned_string.lower()
+        right=len(cleaned_string)-1
+        while left < right  :
+            if cleaned_string[left] != cleaned_string[right]:
                 return False
-            first +=1
-            last -= 1
+            left +=1
+            right -=1
+
         return True
+         
