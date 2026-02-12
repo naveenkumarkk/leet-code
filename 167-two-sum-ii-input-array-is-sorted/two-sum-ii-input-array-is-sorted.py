@@ -1,17 +1,15 @@
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        
-        first_pointer, second_pointer = 0,len(numbers)-1
-        listLen = len(numbers)
-        res = []
-        tempSum = 0
-        while  first_pointer < second_pointer :
-            tempsum = numbers[first_pointer] + numbers[second_pointer]
-            if tempsum == target:
-                return [first_pointer +1,second_pointer+1]
-            elif tempsum < target:
-                first_pointer +=1
-            else :
-                second_pointer -= 1
+        array_len = len(numbers) - 1
+        right = len(numbers) - 1
+        left = 0
 
-        return []
+        while left < right:
+            temp_sum = numbers[left] + numbers[right]
+            if temp_sum == target:
+                return [left+1,right+1]
+            elif temp_sum > target:
+                right -= 1
+            else:
+                left += 1
+        
