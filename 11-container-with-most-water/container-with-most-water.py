@@ -11,6 +11,5 @@ class Solution:
                 min_value = height[right]
                 right -= 1
             trapped_water = min_value * area
-            
             max_water = max(max_water,trapped_water)
         return max_water
